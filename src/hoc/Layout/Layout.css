@@ -1,0 +1,13 @@
+.Layout {
+    font-family: 'Roboto', sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.Layout main {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
