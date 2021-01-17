@@ -54,9 +54,9 @@ export function auth(email, password, isLogin) {
         let url = '';
 
         if(isLogin) {
-            url = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAgBogD-Zhnpx7pnP3OfC6CqP-lf8V_HGQ'
+            url = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?'
         } else {
-            url = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAgBogD-Zhnpx7pnP3OfC6CqP-lf8V_HGQ'
+            url = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?'
         }
 
         const response = await axios.post(url, authData)
