@@ -2,6 +2,8 @@ import React, {Component} from "react";
 import classes from "./Auth.css";
 import Button from "../../components/UI/Button/Button";
 import Input from "../../components/UI/Input/Input";
+import {connect} from "react-redux";
+import {auth} from "../../store/actions/auth";
 
 function validateEmail(email) {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -40,11 +42,18 @@ class Auth extends Component {
     }
 
     loginHandler = () => {
-
+        this.props.auth(this.state.formControls.email.value, this.state.formControls.password.value, true)
     }
 
     registerHandler = () => {
+        this.props.auth(this.state.formControls.email.value, this.state.formControls.password.value, false)
 
+        // try {
+        //     const response = await axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAgBogD-Zhnpx7pnP3OfC6CqP-lf8V_HGQ', authData)
+        //     console.log(response.data)
+        // } catch (e) {
+        //     console.log(e)
+        // }
     }
 
     submitHandler = event => {
@@ -131,4 +140,10 @@ class Auth extends Component {
     }
 }
 
-export default Auth
+function mapDispatchToProps(dispatch) {
+    return {
+        auth: (email, password, isLogin) => dispatch(auth(email, password, isLogin))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Auth)

@@ -22,6 +22,8 @@ const FinishedQuiz = props => {
                         classes[props.results[question.id]]
                     ]
 
+                    console.log(props.results)
+
                     return (
                         <li key={index} >
                             <strong>{index + 1}. </strong>
