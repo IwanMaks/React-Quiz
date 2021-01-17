@@ -49,7 +49,7 @@ class Auth extends Component {
         this.props.auth(this.state.formControls.email.value, this.state.formControls.password.value, false)
 
         // try {
-        //     const response = await axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAgBogD-Zhnpx7pnP3OfC6CqP-lf8V_HGQ', authData)
+        //     const response = await axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signUp?', authData)
         //     console.log(response.data)
         // } catch (e) {
         //     console.log(e)
